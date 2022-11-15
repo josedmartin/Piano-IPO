@@ -5,7 +5,7 @@
 // El nombre será mostrada en el elemento HTML #equipo de la página web
 // Cada equipo debe actualizar la constante con su nombre de equipo
 
-const nombreDelEquipoDeLaboratorio = "XXXXX";
+const nombreDelEquipoDeLaboratorio = "SUECIA";
 document.getElementById("equipo").innerHTML = nombreDelEquipoDeLaboratorio;
 
 // -------------------------------------------------------
@@ -111,6 +111,17 @@ function ___generaSonido(frecuencia) {
   //     enviado directamente a la salida sin ningún tipo de procesamiento
   //   - El paso 4: se enviará el sonido a la salida, pero limitando la duración de emisión del sonido
   //     a un segundo. Será necesario el apoyo de .currenTime .play() y stop()
+
+  var context = new(window.AudioContext || window.webkitAudioContext)();
+  var oscilador = context.createOscillator();
+
+  oscilador.type = osciladorSeleccionado;
+  oscilador.frequency.value = frecuencia;
+  oscilador.connect(context.destination);
+
+  var now = context.currentTime;
+  oscilador.start();
+  oscilador.stop(now + 1);
 }
 
 // -----------------------------------------------
