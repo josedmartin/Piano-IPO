@@ -13,12 +13,12 @@
 :root {
   --color-fondo: hsl(0, 5%, 95%);
 
-  --color-primario: hsl(0, 0%, 0%);
-  --color-primario-claro: hsl(0, 0%, 50%);
+  --color-primario: hsl(209, 49%, 26%);
+  --color-primario-claro: hsla(70, 11%, 46%, 0.856);
   --color-primario-muy-claro: hsl(0, 0%, 80%);
   --color-sobre-primario: hsl(2, 100%, 100%);
 
-  --color-secundario: hsl(70, 40%, 90%);
+  --color-secundario: hsl(69, 57%, 88%);
   --color-sobre-secundario: hsl(2, 0%, 0%);
 
   --fuente-primaria: sans-serif;
@@ -34,27 +34,45 @@
 body {
   height: 100vh;
   background-color: var(--color-fondo);
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
 
 /**********************************************************************/
 
 .lienzo {
   display: grid;
-
-  width: clamp(600px, 80vw, 1000px);
-  height: clamp(400px, 80vh, 700px);
+  place-items: center;
+  width: clamp(500px, 65vw, 800px);
+  height: clamp(200px, 55vh, 450px);
 
   background-color: var(--color-secundario);
+
+  border-radius: 15px;
+  padding: 0em 2em 1.5em 2em;
+  grid-template-areas: 
+  "area1 area1"
+  "area2 area3";
 }
 
 /**********************************************************************/
 .cabecera {
   background-color: var(--color-primario);
   color: var(--color-sobre-primario);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1em;
 
   text-align: center;
   text-transform: uppercase;
   font-size: 1.2rem;
+
+  grid-area: area1;
+  align-self: center;
+
+  width: 95%;
+  height: 50px;
 }
 
 /**********************************************************************/
@@ -64,18 +82,41 @@ body {
   color: var(--color-sobre-primario);
 
   /* Estética */
-  padding: 0.8em;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  grid-area: area2;
+
+  height: 180px;
+  width: 120px;
+  gap: 7px;
+  position: relative; 
+  left: -10%;
+  place-items: center;
+  
 }
 
-/* .osciladores::before {
+.osciladores::before {
+  border-left: 15px solid rgb(0, 38, 255);
+  border-top: rgb(0, 255, 72) 15px solid;
 }
 
 .osciladores::after {
-} */
+  border-left: red 15px solid;
+} 
 
 .oscilador {
   background-color: var(--color-primario-claro);
   color: var(--color-sobre-primario);
+
+  height: 25px;
+  width: 80px;
+  border-radius: 10px;
 }
 
 .oscilador--activo {
@@ -86,15 +127,27 @@ body {
 /**********************************************************************/
 .teclado {
   background-color: var(--color-primario-claro);
-
   width: 90%;
-  height: 70%;
+  height: 90%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  grid-area: area3;
+  position: relative;
 }
 
 /**********************************************************************/
 
 .tecla {
   border: 1px solid var(--color-tecla-negra);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0.5em;
 }
 
 /**********************************************************************/
@@ -113,6 +166,8 @@ body {
 
   width: 10%;
   height: 65%;
+  
+  position: absolute;
 }
 
 .tecla--negra:hover {
@@ -152,19 +207,20 @@ body {
   la tecla negra en cada una de las dos teclas blancas)
 */
 
-/* .do-sostenido {
-
+.do-sostenido {
+  left: 9.5%;
 }
 .re-sostenido {
-
+  left: 23.5%;
 }
 .fa-sostenido {
-
+  left: 52%;
 }
 .sol-sostenido {
-
+  left: 66.5%;
 }
 .la-sostenido {
-} */
+  left: 80.5%;
+}
 
 /**********************************************************************/
