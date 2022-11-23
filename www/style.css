@@ -93,18 +93,34 @@ body {
   display: flex;
   flex-direction: column;
   grid-area: area2;
+  position: relative;
 
   gap: 7px;
   
 }
 
 .osciladores::before {
-  border-left: 15px solid rgb(0, 38, 255);
-  border-top: rgb(0, 255, 72) 15px solid;
+  position: absolute;
+  content: " ";
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-secundario);
+  border-bottom: none;
+  border-right: none;
 }
 
 .osciladores::after {
-  border-left: red 15px solid;
+  position: absolute;
+  content: " ";
+  bottom: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-secundario);
+  border-top: none;
+  border-left: none;
 } 
 
 .oscilador {
