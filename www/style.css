@@ -50,7 +50,13 @@ body {
   background-color: var(--color-secundario);
 
   border-radius: 15px;
-  padding: 0em 2em 1.5em 2em;
+  padding: 1em;
+  /*
+  Para que las columnas y filas tengan un maximo y minimo
+  */
+  grid-template-rows: minmax(min-content,70px);
+  grid-template-columns: minmax(min-content,200px);
+  
   grid-template-areas: 
   "area1 area1"
   "area2 area3";
@@ -86,18 +92,9 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-self: center;
-  align-self: center;
-  justify-content: space-evenly;
-  align-items: flex-end;
   grid-area: area2;
 
-  height: 180px;
-  width: 120px;
   gap: 7px;
-  position: relative; 
-  left: -10%;
-  place-items: center;
   
 }
 
@@ -127,7 +124,7 @@ body {
 /**********************************************************************/
 .teclado {
   background-color: var(--color-primario-claro);
-  width: 90%;
+  width: 80%;
   height: 90%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
